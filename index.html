@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Second Stopwatch</title>
+</head>
+<body>
+
+    <h1 id="timer">0</h1>
+
+    <button onclick="startTimer()">Start</button>
+    <button onclick="stopTimer()">Stop</button>
+    <button onclick="resetTimer()">Reset</button>
+
+    <script>
+        let detik = 0;
+        let timerId = null;
+
+        function startTimer() {
+            
+            if (timerId === null) {
+                timerId = setInterval(function() {
+                    detik++;
+                    document.getElementById("timer").innerText = detik;
+                }, 1000); 
+            }
+        }
+
+        function stopTimer() {
+            
+            clearInterval(timerId);
+            timerId = null;
+        }
+
+        function resetTimer() {
+            
+            stopTimer();
+            detik = 0;
+            document.getElementById("timer").innerText = detik;
+        }
+    </script>
+
+</body>
+</html>
